@@ -12,3 +12,12 @@
   align-items: center;
   justify-content: center;
 }
+
+.button {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
