@@ -3,6 +3,9 @@ import "./app.css";
 export const metadata = {
   title: "Mango Test Brisa",
   description: "This is Brisa's technical test for Mango.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
