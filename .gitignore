@@ -1,4 +1,8 @@
-node_modules
+node_modules/
 
-# NextJs
-.next
+# Nextjs and build output
+.next/
+out/
+
+# macOS system files
+.DS_Store
