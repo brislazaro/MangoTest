@@ -5,7 +5,7 @@ type Price = {
   max: number;
 };
 
-const useRange = () => {
+const useGetRangeValues = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState<Price>({ min: 0, max: 0 });
@@ -35,4 +35,4 @@ const useRange = () => {
   };
 };
 
-export default useRange;
+export default useGetRangeValues;

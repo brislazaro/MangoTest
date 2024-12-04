@@ -1,12 +1,15 @@
 "use client";
-import { useState } from "react";
+import { FC, useState } from "react";
 import "./range.css";
-import useRange from "./useRange";
 
-export default function Range() {
-  const { data, isLoading, isError } = useRange();
-  const [valueMin, setValueMin] = useState<number>(0);
-  const [valueMax, setValueMax] = useState<number>(0);
+type RangeProps = {
+  min: number;
+  max: number;
+};
+
+const Range: FC<RangeProps> = ({ min, max }) => {
+  const [valueMin, setValueMin] = useState<number>(min);
+  const [valueMax, setValueMax] = useState<number>(max);
 
   return (
     <div className="range-container">
@@ -37,4 +40,6 @@ export default function Range() {
       </div>
     </div>
   );
-}
+};
+
+export default Range;
