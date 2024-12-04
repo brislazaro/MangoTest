@@ -8,7 +8,7 @@ type Price = {
 const useRange = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [data, setData] = useState<Price | null>(null);
+  const [data, setData] = useState<Price>({ min: 0, max: 0 });
 
   useEffect(() => {
     const fetchRange = async (): Promise<void> => {
