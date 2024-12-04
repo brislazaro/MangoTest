@@ -1,9 +1,13 @@
+"use client";
 import "./range.css";
+import useRange from "./useRange";
+
 export default function Range() {
+  const { data, isLoading, isError } = useRange();
   return (
     <div className="range-container">
       <div className="label">
-        <p>12</p>
+        <p>{data.min}</p>
         <p>€</p>
       </div>
       <div className="range-slider">
@@ -12,7 +16,7 @@ export default function Range() {
       </div>
 
       <div className="label">
-        <p>20</p>
+        <p>{data.max}</p>
         <p>€</p>
       </div>
     </div>
