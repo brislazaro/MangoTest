@@ -1,6 +1,7 @@
 "use client";
-import { FC, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import "./range.css";
+import { parseRangeInput } from "../../utils/stringTreatment";
 
 type RangeProps = {
   min: number;
@@ -8,18 +9,58 @@ type RangeProps = {
 };
 
 const Range: FC<RangeProps> = ({ min, max }) => {
+  const [displayMin, setDisplayMin] = useState<string>(min.toString());
+  const [displayMax, setDisplayMax] = useState<string>(max.toString());
+  const [originalMin, setOriginalMin] = useState<number>(min);
+  const [originalMax, setOriginalMax] = useState<number>(max);
   const [valueMin, setValueMin] = useState<number>(min);
   const [valueMax, setValueMax] = useState<number>(max);
+
+  const handleChangeMin = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = parseRangeInput(e.target.value);
+
+    setDisplayMin(newValue);
+
+    setValueMin(Number(newValue));
+  };
+
+  const handleBlurMin = () => {
+    if (valueMin >= valueMax) {
+      alert("Min value cannot be greater than or equal to max value.");
+      setValueMin(originalMin);
+      setDisplayMin(originalMin.toString());
+    } else {
+      setOriginalMin(valueMin);
+    }
+  };
+
+  const handleChangeMax = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = parseRangeInput(e.target.value);
+
+    setDisplayMax(newValue);
+
+    setValueMax(Number(newValue));
+  };
+
+  const handleBlurMax = () => {
+    if (valueMax <= valueMin) {
+      alert("Max value cannot be smaller than or equal to min value.");
+      setValueMax(originalMax);
+      setDisplayMax(originalMax.toString());
+    } else {
+      setOriginalMax(valueMax);
+    }
+  };
 
   return (
     <div className="range-container">
       <div className="label label--left">
         <input
-          type="text"
           name="min"
-          value={valueMin}
+          value={displayMin}
           className="label-data"
-          onChange={(e) => setValueMin(Number(e.target.value))}
+          onChange={handleChangeMin}
+          onBlur={handleBlurMin}
         ></input>
         <span>€</span>
       </div>
@@ -30,11 +71,11 @@ const Range: FC<RangeProps> = ({ min, max }) => {
 
       <div className="label">
         <input
-          type="text"
-          name="min"
-          value={valueMax}
+          name="max"
+          value={displayMax}
           className="label-data"
-          onChange={(e) => setValueMax(Number(e.target.value))}
+          onChange={handleChangeMax}
+          onBlur={handleBlurMax}
         ></input>
         <span>€</span>
       </div>
