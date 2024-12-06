@@ -3,7 +3,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
   },
   "dependencies": {
     "next": "^15.0.3",
@@ -13,6 +14,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "22.10.1",
     "@types/react": "18.3.12",
     "eslint": "9.16.0",

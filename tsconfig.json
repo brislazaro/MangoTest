@@ -21,14 +21,18 @@
       {
         "name": "next"
       }
+    ],
+    "types": [
+      "jest"
     ]
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "jest.config.js"  ],
+    "**/*.tsx",
+    "jest.config.js"
+  ],
   "exclude": [
     "node_modules"
   ]
