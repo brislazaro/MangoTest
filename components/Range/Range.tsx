@@ -11,44 +11,34 @@ type RangeProps = {
 const Range: FC<RangeProps> = ({ min, max }) => {
   const [displayMin, setDisplayMin] = useState<string>(min.toString());
   const [displayMax, setDisplayMax] = useState<string>(max.toString());
-  const [originalMin, setOriginalMin] = useState<number>(min);
-  const [originalMax, setOriginalMax] = useState<number>(max);
-  const [valueMin, setValueMin] = useState<number>(min);
-  const [valueMax, setValueMax] = useState<number>(max);
+  const [originalMin, setOriginalMin] = useState<string>(min.toString());
+  const [originalMax, setOriginalMax] = useState<string>(max.toString());
 
   const handleChangeMin = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = parseRangeInput(e.target.value);
-
     setDisplayMin(newValue);
-
-    setValueMin(Number(newValue));
   };
 
   const handleBlurMin = () => {
-    if (valueMin >= valueMax) {
+    if (Number(displayMin) >= Number(displayMax)) {
       alert("Min value cannot be greater than or equal to max value.");
-      setValueMin(originalMin);
-      setDisplayMin(originalMin.toString());
+      setDisplayMin(originalMin);
     } else {
-      setOriginalMin(valueMin);
+      setOriginalMin(displayMin);
     }
   };
 
   const handleChangeMax = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = parseRangeInput(e.target.value);
-
     setDisplayMax(newValue);
-
-    setValueMax(Number(newValue));
   };
 
   const handleBlurMax = () => {
-    if (valueMax <= valueMin) {
+    if (Number(displayMax) <= Number(displayMin)) {
       alert("Max value cannot be smaller than or equal to min value.");
-      setValueMax(originalMax);
-      setDisplayMax(originalMax.toString());
+      setDisplayMax(originalMax);
     } else {
-      setOriginalMax(valueMax);
+      setOriginalMax(displayMax);
     }
   };
 
