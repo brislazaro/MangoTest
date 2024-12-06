@@ -11,8 +11,6 @@ type RangeProps = {
 const Range: FC<RangeProps> = ({ min, max }) => {
   const [displayMin, setDisplayMin] = useState<string>(min.toString());
   const [displayMax, setDisplayMax] = useState<string>(max.toString());
-  const [originalMin, setOriginalMin] = useState<string>(min.toString());
-  const [originalMax, setOriginalMax] = useState<string>(max.toString());
 
   const handleChangeMin = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = parseRangeInput(e.target.value);
@@ -21,10 +19,8 @@ const Range: FC<RangeProps> = ({ min, max }) => {
 
   const handleBlurMin = () => {
     if (Number(displayMin) >= Number(displayMax)) {
-      alert("Min value cannot be greater than or equal to max value.");
-      setDisplayMin(originalMin);
-    } else {
-      setOriginalMin(displayMin);
+      const newValue = Number(displayMax) - 1;
+      setDisplayMin(newValue.toString());
     }
   };
 
@@ -35,10 +31,8 @@ const Range: FC<RangeProps> = ({ min, max }) => {
 
   const handleBlurMax = () => {
     if (Number(displayMax) <= Number(displayMin)) {
-      alert("Max value cannot be smaller than or equal to min value.");
-      setDisplayMax(originalMax);
-    } else {
-      setOriginalMax(displayMax);
+      const newValue = Number(displayMin) + 1;
+      setDisplayMax(newValue.toString());
     }
   };
 
