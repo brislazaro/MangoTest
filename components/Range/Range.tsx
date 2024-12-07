@@ -40,6 +40,7 @@ const Range: FC<RangeProps> = ({ min, max }) => {
     <div className="range-container">
       <div className="label label--left">
         <input
+          data-testid="input-min"
           name="min"
           value={displayMin}
           className="label-data"
@@ -52,9 +53,9 @@ const Range: FC<RangeProps> = ({ min, max }) => {
         <div className="thumb thumb-min"></div>
         <div className="thumb thumb-max"></div>
       </div>
-
       <div className="label">
         <input
+          data-testid="input-max"
           name="max"
           value={displayMax}
           className="label-data"
