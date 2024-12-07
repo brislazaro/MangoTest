@@ -50,7 +50,7 @@ describe("Given a Range component min input", () => {
 
         fireEvent.blur(minInput);
 
-        expect(minInput).toHaveValue("0");
+        expect(minInput).toHaveValue("1");
       });
     });
 
@@ -68,7 +68,7 @@ describe("Given a Range component min input", () => {
 
         fireEvent.blur(minInput);
 
-        expect(minInput).toHaveValue("0");
+        expect(minInput).toHaveValue("1");
       });
     });
 
@@ -164,35 +164,51 @@ describe("Given a Range component max input", () => {
       });
     });
 
-    describe("And the user introduces 120g in the max input", () => {
-      test("Then should put 120 as the input value", () => {
+    describe("And the user introduces 65g in the max input", () => {
+      test("Then should put 65 as the input value", () => {
         const maxInput = screen.getByTestId("input-max");
 
         fireEvent.change(maxInput, {
           target: {
-            value: "120g",
+            value: "65g",
           },
         });
 
         fireEvent.blur(maxInput);
 
-        expect(maxInput).toHaveValue("120");
+        expect(maxInput).toHaveValue("65");
       });
     });
 
-    describe("And the user introduces 120 in the max input", () => {
-      test("Then should put 120 as the input value", () => {
+    describe("And the user introduces 80 in the max input", () => {
+      test("Then should put 80 as the input value", () => {
         const maxInput = screen.getByTestId("input-max");
 
         fireEvent.change(maxInput, {
           target: {
-            value: "120",
+            value: "80",
           },
         });
 
         fireEvent.blur(maxInput);
 
-        expect(maxInput).toHaveValue("120");
+        expect(maxInput).toHaveValue("80");
+      });
+    });
+
+    describe("And the user introduces a number bigger than the max value in the max input", () => {
+      test("Then should put 100 as the input value", () => {
+        const maxInput = screen.getByTestId("input-max");
+
+        fireEvent.change(maxInput, {
+          target: {
+            value: "999999",
+          },
+        });
+
+        fireEvent.blur(maxInput);
+
+        expect(maxInput).toHaveValue("100");
       });
     });
   });
