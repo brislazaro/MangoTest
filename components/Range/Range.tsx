@@ -32,7 +32,7 @@ const Range: FC<RangeProps> = ({ min, max }) => {
       newValue = labelMax - 1;
     }
 
-    if (labelMin > min) {
+    if (labelMin < min) {
       newValue = min;
     }
 

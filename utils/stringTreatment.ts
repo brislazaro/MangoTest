@@ -3,7 +3,7 @@ export const removeLetters = (value: string) => {
 };
 
 export const removeLeftZeros = (value: string) => {
-  return value.replace(/^0+/, "") || "1";
+  return value.replace(/^0+/, "") || "0";
 };
 
 export const parseRangeInput = (value: string) => {
