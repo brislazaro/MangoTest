@@ -2,6 +2,7 @@
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import "./range.css";
 import { parseRangeInput } from "../../utils/stringTreatment";
+import { getNewThumbValue } from "../../utils/rangeCalculations";
 
 type RangeProps = {
   min: number;
@@ -65,23 +66,27 @@ const Range: FC<RangeProps> = ({ min, max }) => {
   };
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging) return;
-
     const slider = document.querySelector(".range-slider");
     if (!slider) return;
 
     const sliderRect = slider.getBoundingClientRect();
-    const newPercent = ((e.clientX - sliderRect.left) / sliderRect.width) * 100;
-    const newValue = Math.round(min + ((max - min) * newPercent) / 100);
+
+    const newThumbValue = getNewThumbValue(e.clientX, sliderRect, min, max);
 
     if (isDragging === "min") {
-      if (newValue < min || newValue >= labelMax) return;
-      setLabelMin(newValue);
-      setThumbMin(newValue);
+      if (newThumbValue < min || newThumbValue >= labelMax) {
+        return;
+      }
+
+      setLabelMin(newThumbValue);
+      setThumbMin(newThumbValue);
     } else if (isDragging === "max") {
-      if (newValue > max || newValue <= labelMin) return;
-      setLabelMax(newValue);
-      setThumbMax(newValue);
+      if (newThumbValue > max || newThumbValue <= labelMin) {
+        return;
+      }
+
+      setLabelMax(newThumbValue);
+      setThumbMax(newThumbValue);
     }
   };
 
@@ -97,6 +102,7 @@ const Range: FC<RangeProps> = ({ min, max }) => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
     }
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
