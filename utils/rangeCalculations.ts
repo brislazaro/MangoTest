@@ -40,3 +40,20 @@ export const getNewThumbValue = (
 
   return newValue;
 };
+
+export const getIndexPercentageFromValue = (
+  value: number,
+  values: number[]
+) => {
+  const index = values.indexOf(value);
+  return (index / (values.length - 1)) * 100;
+};
+
+export const getNearestValueFromCurrentThumb = (
+  value: number,
+  rangeValues: number[]
+) => {
+  return rangeValues.reduce((nearest, current) =>
+    Math.abs(current - value) < Math.abs(nearest - value) ? current : nearest
+  );
+};

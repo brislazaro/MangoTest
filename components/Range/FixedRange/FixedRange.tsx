@@ -1,6 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import "../range.css";
-import { getNewThumbValue } from "../../../utils/rangeCalculations";
+import {
+  getIndexPercentageFromValue,
+  getNearestValueFromCurrentThumb,
+  getNewThumbValue,
+} from "../../../utils/rangeCalculations";
 
 type FixedRangeProps = {
   values: number[];
@@ -15,22 +19,11 @@ const FixedRange: FC<FixedRangeProps> = ({ values }) => {
 
   const [isDragging, setIsDragging] = useState<"min" | "max" | null>(null);
 
-  const getValuePercentage = (value: number) => {
-    const index = values.indexOf(value);
-    return (index / (values.length - 1)) * 100;
-  };
-
-  const minPercent = getValuePercentage(thumbMin);
-  const maxPercent = getValuePercentage(thumbMax);
+  const minPercent = getIndexPercentageFromValue(thumbMin, values);
+  const maxPercent = getIndexPercentageFromValue(thumbMax, values);
 
   const handleMouseDown = (thumb: "min" | "max") => {
     setIsDragging(thumb);
-  };
-
-  const getNearestValue = (value: number, rangeValues: number[]) => {
-    return rangeValues.reduce((nearest, current) =>
-      Math.abs(current - value) < Math.abs(nearest - value) ? current : nearest
-    );
   };
 
   const handleMouseMove = (e: MouseEvent) => {
@@ -41,7 +34,7 @@ const FixedRange: FC<FixedRangeProps> = ({ values }) => {
 
     const newThumbValue = getNewThumbValue(e.clientX, sliderRect, min, max);
 
-    const nearestValue = getNearestValue(newThumbValue, values);
+    const nearestValue = getNearestValueFromCurrentThumb(newThumbValue, values);
 
     if (isDragging === "min" && nearestValue < thumbMax) {
       setThumbMin(nearestValue);
@@ -95,7 +88,12 @@ const FixedRange: FC<FixedRangeProps> = ({ values }) => {
               className="dot"
               key={dot}
               data-testid="dot"
-              style={{ left: `calc(${getValuePercentage(dot)}% - 1px)` }}
+              style={{
+                left: `calc(${getIndexPercentageFromValue(
+                  dot,
+                  values
+                )}% - 1px)`,
+              }}
             ></div>
           );
         })}
