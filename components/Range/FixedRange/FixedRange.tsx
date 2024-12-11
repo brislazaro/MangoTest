@@ -72,7 +72,7 @@ const FixedRange: FC<FixedRangeProps> = ({ values }) => {
   return (
     <div className="range-container">
       <span data-testid="min" className="label--left">
-        {min} €
+        {thumbMin} €
       </span>
       <div className="range-slider">
         <div
@@ -101,7 +101,7 @@ const FixedRange: FC<FixedRangeProps> = ({ values }) => {
         })}
       </div>
       <span data-testid="max" className="label--right">
-        {max} €
+        {thumbMax} €
       </span>
     </div>
   );
