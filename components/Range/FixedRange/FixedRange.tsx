@@ -6,7 +6,7 @@ type FixedRangeProps = {
   values: number[];
 };
 
-const fixedRange: FC<FixedRangeProps> = ({ values }) => {
+const FixedRange: FC<FixedRangeProps> = ({ values }) => {
   const min = values[0];
   const max = values[values.length - 1];
 
@@ -71,7 +71,9 @@ const fixedRange: FC<FixedRangeProps> = ({ values }) => {
 
   return (
     <div className="range-container">
-      <span className="label--left">{min} €</span>
+      <span data-testid="min" className="label--left">
+        {min} €
+      </span>
       <div className="range-slider">
         <div
           className="thumb"
@@ -92,13 +94,16 @@ const fixedRange: FC<FixedRangeProps> = ({ values }) => {
             <div
               className="dot"
               key={dot}
+              data-testid="dot"
               style={{ left: `calc(${getValuePercentage(dot)}% - 1px)` }}
             ></div>
           );
         })}
       </div>
-      <span className="label--right">{max} €</span>
+      <span data-testid="max" className="label--right">
+        {max} €
+      </span>
     </div>
   );
 };
-export default fixedRange;
+export default FixedRange;
