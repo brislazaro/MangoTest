@@ -38,7 +38,7 @@ npm install
 2. Start the project running the following command:
 
 ```bash
-npm start
+npm run dev
 ```
 
 ## Running the tests
