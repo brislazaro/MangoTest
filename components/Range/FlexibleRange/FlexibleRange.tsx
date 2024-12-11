@@ -1,6 +1,6 @@
 "use client";
 import { ChangeEvent, FC, useEffect, useState } from "react";
-import "./range.css";
+import "../range.css";
 import { parseRangeInput } from "../../../utils/stringTreatment";
 import { getNewThumbValue } from "../../../utils/rangeCalculations";
 

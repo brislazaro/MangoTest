@@ -3,7 +3,7 @@
 import Range from "../../components/Range/Range";
 import useGetFixedRangeValues from "./useGetFixedRangeValues";
 
-export default function exercise2() {
+export default function Exercise2() {
   const { data, isLoading, isError } = useGetFixedRangeValues();
 
   if (isLoading) {
