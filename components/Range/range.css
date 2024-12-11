@@ -10,18 +10,20 @@
   height: 6px;
   background-color: black;
   border-radius: 4px;
+  display: flex;
 }
 
 .thumb {
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   width: 20px;
   height: 20px;
   background-color: black;
   border-radius: 50%;
-  transform: translateY(-50%);
   cursor: pointer;
   border: 2px solid rgb(176, 176, 176);
+  z-index: 10;
 }
 
 .thumb:hover {
@@ -45,7 +47,7 @@
 }
 
 .label--right {
-  padding-left: 8px;
+  padding-left: 10px;
 }
 
 .label-data {
@@ -53,4 +55,14 @@
   height: 35px;
   border: 0;
   text-align: right;
+}
+
+.dot {
+  background-color: rgb(190, 184, 184);
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
