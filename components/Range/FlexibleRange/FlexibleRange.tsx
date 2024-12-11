@@ -1,8 +1,8 @@
 "use client";
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import "./range.css";
-import { parseRangeInput } from "../../utils/stringTreatment";
-import { getNewThumbValue } from "../../utils/rangeCalculations";
+import { parseRangeInput } from "../../../utils/stringTreatment";
+import { getNewThumbValue } from "../../../utils/rangeCalculations";
 
 type FlexibleRangeProps = {
   min: number;
@@ -110,7 +110,7 @@ const FlexibleRange: FC<FlexibleRangeProps> = ({ min, max }) => {
   }, [isDragging]);
 
   return (
-    <div className="range-container">
+    <div className="range-container" data-testid="flexible-range">
       <div className="label label--left">
         <input
           data-testid="input-min"

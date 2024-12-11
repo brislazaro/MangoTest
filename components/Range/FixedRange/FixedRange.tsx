@@ -63,7 +63,7 @@ const FixedRange: FC<FixedRangeProps> = ({ values }) => {
   }, [isDragging]);
 
   return (
-    <div className="range-container">
+    <div className="range-container" data-testid="fixed-range">
       <span data-testid="min" className="label--left">
         {thumbMin} €
       </span>

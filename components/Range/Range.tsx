@@ -1,6 +1,6 @@
 import { FC } from "react";
 import FixedRange from "./FixedRange/FixedRange";
-import FlexibleRange from "./FlexibleRange";
+import FlexibleRange from "./FlexibleRange/FlexibleRange";
 
 type RangeProps = {
   min?: number;
