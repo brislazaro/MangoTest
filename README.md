@@ -94,8 +94,12 @@ Complex processes and logic blocks are extracted into pure functions. This appro
 - Allows us to reuse logic across the project if needed.
 
 # Things to improve
-- Test drag and drop from Range components
-- Improve FixedRange drag and drop experience
-- Test the two adapter hooks
-- Remove useClient from my pages
-- Fix thumb styles when dragging and moving mouse outside thumb
+
+If I had more time, I would like to work on the following tasks in order of priority:
+
+1. Test drag and drop from Range components
+2. Improve FixedRange drag and drop experience
+3. Test the 2 pages for loading and error states
+4. Test the two adapter hooks
+5. Remove useClient from my pages
+6. Fix thumb styles when dragging and moving mouse outside thumb
