@@ -13,8 +13,8 @@ const fixedRange: FC<FixedRangeProps> = ({ values }) => {
   const [thumbMax, setThumbMax] = useState<number>(max);
 
   const range = max - min;
-  const minPercent = ((thumbMin - min) / (max - min)) * 100;
-  const maxPercent = ((thumbMax - min) / (max - min)) * 100;
+  const minPercent = ((thumbMin - min) / range) * 100;
+  const maxPercent = ((thumbMax - min) / range) * 100;
 
   return (
     <div className="range-container">
@@ -22,12 +22,15 @@ const fixedRange: FC<FixedRangeProps> = ({ values }) => {
       <div className="range-slider">
         <div
           className="thumb"
-          style={{ left: `calc(${minPercent}% - 18px)` }}
+          style={{ left: `calc(${minPercent}% - 10px)` }}
         ></div>
         <div
           className="thumb"
-          style={{ left: `calc(${maxPercent}% - 2px)` }}
+          style={{ left: `calc(${maxPercent}% - 10px)` }}
         ></div>
+        {values.map((dot) => {
+          return <div className="dot" key={dot}></div>;
+        })}
       </div>
       <span className="label--right">{max} €</span>
     </div>
