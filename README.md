@@ -61,7 +61,7 @@ I've made some architectural decisions to improve the project's maintainability 
 
 ## Reusable Range Component
 
-The Range component is designed as a reusable component, similar to component libraries ones like MaterialUI or Ant-design. It adapts its behavior based on the props it receives. Depending on the provided props, it can render:
+The Range component is designed as a reusable component, similar to component libraries ones like MaterialUI or Ant-design. It adapts its behaviour based on the props it receives. Depending on the provided props, it can render:
 
 - A min-max Range component.
 - A fixed-values Range component.
@@ -74,7 +74,7 @@ This abstraction allows developers to use the component without worrying about i
 
 ## Adapter Pattern for Data Fetching
 
-To handle data fetching, the repository employs the Adapter Pattern via a custom React hook. This pattern ensures a clear separation of concerns following the Single Responsability principle:
+To handle data fetching, the repository employs the Adapter Pattern via a custom React hook. This pattern ensures a clear separation of concerns following the Single Responsibility principle:
 
 - Component Responsibility: The component only renders the data it receives.
 - Hook Responsibility: The hook handles fetching and adapting the data to the component's needs.
