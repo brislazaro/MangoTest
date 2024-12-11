@@ -11,20 +11,19 @@
   background-color: black;
   border-radius: 4px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .thumb {
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   width: 20px;
   height: 20px;
   background-color: black;
   border-radius: 50%;
-  transform: translateY(-50%);
   cursor: pointer;
   border: 2px solid rgb(176, 176, 176);
+  z-index: 10;
 }
 
 .thumb:hover {
@@ -63,4 +62,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
