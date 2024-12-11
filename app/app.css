@@ -27,3 +27,10 @@
   padding: 10px 20px;
   cursor: pointer;
 }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
