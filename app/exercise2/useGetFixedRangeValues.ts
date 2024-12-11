@@ -9,7 +9,7 @@ const useGetFixedRangeValues = () => {
     const fetchFixedRange = async (): Promise<void> => {
       try {
         const response = await fetch(
-          `http://demo4362601.mockable.io/exercise2`
+          `https://demo4362601.mockable.io/exercise2`
         );
         const prices: number[] = await response.json();
 

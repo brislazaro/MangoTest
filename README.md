@@ -15,7 +15,7 @@
 
 # About the project
 
-This repository contains a technical test project built with Next.js, manually configured from scratch. The application is deployed and accessible at [www.testurl.com](http://www.testurl.com).
+This repository contains a technical test project built with Next.js, manually configured from scratch. The application is deployed and accessible at [https://mango-test-m6ew.vercel.app/](https://mango-test-m6ew.vercel.app/).
 
 The project follows best practices in software architecture, emphasizing reusability, testability, and maintainability.
 
@@ -27,7 +27,7 @@ The project follows best practices in software architecture, emphasizing reusabi
 
 If needed, you can start the project locally following the steps below:
 
-_Remember that the project is deployed to [www.testurl.com](http://www.testurl.com)._
+_Remember that the project is deployed to [https://mango-test-m6ew.vercel.app/](https://mango-test-m6ew.vercel.app/)._
 
 1. Install the dependencies running the following command:
 

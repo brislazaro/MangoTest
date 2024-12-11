@@ -14,7 +14,7 @@ const useGetRangeValues = () => {
     const fetchRange = async (): Promise<void> => {
       try {
         const response = await fetch(
-          `http://demo4362601.mockable.io/mangotest`
+          `https://demo4362601.mockable.io/mangotest`
         );
         const price = await response.json();
 
