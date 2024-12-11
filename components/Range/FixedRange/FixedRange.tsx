@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import "../range.css";
 
 type FixedRangeProps = {
@@ -9,14 +9,27 @@ const fixedRange: FC<FixedRangeProps> = ({ values }) => {
   const min = values[0];
   const max = values[values.length - 1];
 
+  const [thumbMin, setThumbMin] = useState<number>(min);
+  const [thumbMax, setThumbMax] = useState<number>(max);
+
+  const range = max - min;
+  const minPercent = ((thumbMin - min) / (max - min)) * 100;
+  const maxPercent = ((thumbMax - min) / (max - min)) * 100;
+
   return (
     <div className="range-container">
-      <p>{min} €</p>
+      <span className="label--left">{min} €</span>
       <div className="range-slider">
-        <div className="thumb"></div>
-        <div className="thumb"></div>
+        <div
+          className="thumb"
+          style={{ left: `calc(${minPercent}% - 18px)` }}
+        ></div>
+        <div
+          className="thumb"
+          style={{ left: `calc(${maxPercent}% - 2px)` }}
+        ></div>
       </div>
-      <p>{max} €</p>
+      <span className="label--right">{max} €</span>
     </div>
   );
 };
