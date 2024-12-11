@@ -92,7 +92,7 @@ const fixedRange: FC<FixedRangeProps> = ({ values }) => {
             <div
               className="dot"
               key={dot}
-              style={{ left: `calc(${getValuePercentage(dot)}%)` }}
+              style={{ left: `calc(${getValuePercentage(dot)}% - 1px)` }}
             ></div>
           );
         })}

@@ -59,8 +59,8 @@
 
 .dot {
   background-color: rgb(190, 184, 184);
-  width: 5px;
-  height: 5px;
+  width: 2px;
+  height: 2px;
   border-radius: 50%;
   position: absolute;
   top: 50%;
