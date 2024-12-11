@@ -1,6 +1,6 @@
 import { screen, fireEvent } from "@testing-library/react";
 import { renderComponentFactory } from "../../utils/testUtils";
-import Range from "./Range";
+import Range from "./FlexibleRange";
 
 describe("Given a Range component", () => {
   describe("When it receives min=1 and max=100", () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import FixedRange from "../../components/Range/FixedRange/FixedRange";
+import Range from "../../components/Range/Range";
 import useGetFixedRangeValues from "./useGetFixedRangeValues";
 
 export default function exercise2() {
@@ -14,5 +14,5 @@ export default function exercise2() {
     return <p>Error</p>;
   }
 
-  return <FixedRange values={data} />;
+  return <Range values={data} />;
 }
