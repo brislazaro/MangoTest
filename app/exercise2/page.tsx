@@ -2,6 +2,8 @@
 
 import Range from "../../components/Range/Range";
 import useGetFixedRangeValues from "./useGetFixedRangeValues";
+import "../app.css";
+import Link from "next/link";
 
 export default function Exercise2() {
   const { data, isLoading, isError } = useGetFixedRangeValues();
@@ -14,5 +16,12 @@ export default function Exercise2() {
     return <p>Error</p>;
   }
 
-  return <Range values={data} />;
+  return (
+    <div className="page-container">
+      <Range values={data} />
+      <Link className="button" href="/">
+        Go back
+      </Link>
+    </div>
+  );
 }
