@@ -145,7 +145,6 @@ const Range: FC<RangeProps> = ({ min, max }) => {
         ></input>
         <span>€</span>
       </div>
-      <div></div>
     </div>
   );
 };
