@@ -11,9 +11,9 @@ const useGetFixedRangeValues = () => {
         const response = await fetch(
           `http://demo4362601.mockable.io/exercise2`
         );
-        const prices = await response.json();
+        const prices: number[] = await response.json();
 
-        const pricesMintoMax = prices.sort();
+        const pricesMintoMax = prices.sort((a, b) => a - b);
 
         setData(pricesMintoMax);
       } catch {
